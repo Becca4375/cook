@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Pink Recipe Box</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Recipe Box</h1>
+    <button id="open-add-modal" class="btn-primary">+ Add Recipe</button>
+  </header>
+
+  <section class="welcome-card">
+    <div class="welcome-text">
+      <span class="badge">✨ Fresh & Homemade</span>
+      <h2>Welcome to Recipe Box</h2>
+      <p>Where all your cravings are taken care of!</p>
+    </div>
+    <div class="welcome-icon">
+      🍰 
+    </div>
+  </section>
+
+  <!-- Section Heading for Recipes -->
+  <main>
+    <div class="section-title-container">
+      <h2>Available Recipes</h2>
+    </div>
+    <div id="recipe-grid" class="grid"></div>
+  </main>
+
+  
+
+  <!-- Add / Edit Recipe Modal -->
+  <dialog id="add-modal" class="modal">
+    <form id="recipe-form">
+      <h2 id="form-header">New Recipe</h2>
+      
+      <input type="text" id="title" placeholder="Recipe Title" required>
+
+      <div class="image-input-group">
+        <label>Recipe Image</label>
+        <input type="file" id="image-file" accept="image/*">
+        <p class="or-divider">— OR —</p>
+        <input type="url" id="image-url" placeholder="Paste image URL (https://...)">
+        <img id="form-image-preview" class="preview-hidden" alt="Image preview">
+      </div>
+
+      <textarea id="ingredients" placeholder="Ingredients (one per line)" rows="4" required></textarea>
+      <textarea id="preparation" placeholder="Preparation Steps (one per line)" rows="5" required></textarea>
+
+      <div class="modal-actions">
+        <button type="button" id="close-add-modal" class="btn-secondary">Cancel</button>
+        <button type="submit" class="btn-primary">Save Recipe</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- View Details Modal -->
+  <dialog id="view-modal" class="modal">
+    <div class="modal-content">
+      <button id="close-view-modal" class="close-btn">&times;</button>
+      <img id="detail-img" src="" alt="Recipe Image">
+      <h2 id="detail-title"></h2>
+      
+      <div class="details-section">
+        <h3>Ingredients</h3>
+        <ul id="detail-ingredients"></ul>
+      </div>
+
+      <div class="details-section">
+        <h3>Preparation</h3>
+        <ol id="detail-preparation"></ol>
+      </div>
+
+      <div class="view-actions">
+        <button id="edit-recipe-btn" class="btn-secondary">Edit Recipe</button>
+        <button id="delete-recipe-btn" class="btn-danger">Delete Recipe</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
